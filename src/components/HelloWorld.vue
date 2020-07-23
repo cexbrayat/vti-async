@@ -1,19 +1,16 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <div>{{ users }}</div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  data() {
-    return {
-      count: 0
-    }
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+
+  async setup() {
+    const users = ref<Array<string>>(await Promise.resolve(['Cédric']));
+    return { users };
   }
-}
+});
 </script>
