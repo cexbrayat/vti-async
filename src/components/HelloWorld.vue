@@ -1,16 +1,17 @@
 <template>
-  <div>{{ users }}</div>
+  <div>{{ user.name }}</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { UserModel } from '../models/user.model';
 
 export default defineComponent({
-  name: 'App',
-
-  async setup() {
-    const users = ref<Array<string>>(await Promise.resolve(['Cédric']));
-    return { users };
+  name: 'HelloWorld',
+  props: {
+    user: {
+      type: Object as PropType<UserModel>
+    }
   }
 });
 </script>

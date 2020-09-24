@@ -1,17 +1,22 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <Suspense>
-    <HelloWorld msg="Hello Vue 3.0 + Vite" />
+    <HelloWorld :user="user" />
   </Suspense>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import { UserModel } from './models/user.model'
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     HelloWorld
+  },
+  setup() {
+    return { user: { name: 'Cédric' } };
   }
-}
+})
 </script>
